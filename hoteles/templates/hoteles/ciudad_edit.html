@@ -1,0 +1,12 @@
+{% extends "hoteles/base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+	<h1 class="green center">Nueva ciudad</h1>
+	<form method="POST" class="center formulario">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+	
+{% endblock %}

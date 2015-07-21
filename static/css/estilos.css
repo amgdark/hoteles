@@ -1,0 +1,36 @@
+body{
+	padding: 20px;
+	margin: 0px;
+	background-color: silver;
+	font-family: arial;
+
+}
+.tabla{
+	border: 1px solid green;
+	margin: 0 auto;
+	width: 50%;
+}
+.tabla th{
+	background-color: green;
+	color: white;
+}
+.tabla td{
+	border:1px solid silver;
+}
+.contenedor{
+	padding: 30px;
+	background-color: white;
+	margin: 0 auto;
+}
+
+.formulario{
+	border: 1px solid green;
+	width: 50%;
+	margin: 0 auto;
+}
+.green{
+	color: green;
+}
+.center{
+	text-align: center;
+}
