@@ -21,3 +21,5 @@ def ciudadNueva(request, pk):
 	else:
 		form = CiudadForm(instance=ciudad)
 	return render(request, 'hoteles/ciudad_edit.html',{'form':form})
+
+https://pypi.python.org/pypi/mysqlclient#downloads), 
