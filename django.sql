@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.4-m14, for osx10.7 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.22, for osx10.8 (x86_64)
 --
 -- Host: localhost    Database: djangodb
 -- ------------------------------------------------------
--- Server version	5.7.4-m14
+-- Server version	5.6.22
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -53,8 +53,8 @@ CREATE TABLE `auth_group_permissions` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `group_id` (`group_id`,`permission_id`),
   KEY `auth_group__permission_id_514b5a07dde54b43_fk_auth_permission_id` (`permission_id`),
-  CONSTRAINT `auth_group_permission_group_id_6ec6782470704490_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
-  CONSTRAINT `auth_group__permission_id_514b5a07dde54b43_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
+  CONSTRAINT `auth_group__permission_id_514b5a07dde54b43_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_group_permission_group_id_6ec6782470704490_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -171,8 +171,8 @@ CREATE TABLE `auth_user_user_permissions` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`,`permission_id`),
   KEY `auth_user_u_permission_id_58220ce4e3ab22fa_fk_auth_permission_id` (`permission_id`),
-  CONSTRAINT `auth_user_user_permissi_user_id_51bc877df58b7e80_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
-  CONSTRAINT `auth_user_u_permission_id_58220ce4e3ab22fa_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
+  CONSTRAINT `auth_user_u_permission_id_58220ce4e3ab22fa_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_user_user_permissi_user_id_51bc877df58b7e80_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -204,8 +204,8 @@ CREATE TABLE `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `djang_content_type_id_783059e0cbb5e39f_fk_django_content_type_id` (`content_type_id`),
   KEY `django_admin_log_user_id_43ccc30a40084e19_fk_auth_user_id` (`user_id`),
-  CONSTRAINT `django_admin_log_user_id_43ccc30a40084e19_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
-  CONSTRAINT `djang_content_type_id_783059e0cbb5e39f_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+  CONSTRAINT `djang_content_type_id_783059e0cbb5e39f_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `django_admin_log_user_id_43ccc30a40084e19_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -305,9 +305,9 @@ DROP TABLE IF EXISTS `hoteles_ciudad`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `hoteles_ciudad` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(60) COLLATE utf8_bin NOT NULL,
+  `nombre` varchar(120) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -316,7 +316,7 @@ CREATE TABLE `hoteles_ciudad` (
 
 LOCK TABLES `hoteles_ciudad` WRITE;
 /*!40000 ALTER TABLE `hoteles_ciudad` DISABLE KEYS */;
-INSERT INTO `hoteles_ciudad` VALUES (1,'Aguascalientes'),(2,'Zacatecas');
+INSERT INTO `hoteles_ciudad` VALUES (1,'Aguascalientes'),(2,'Zacatecas'),(3,'Jalisco'),(4,'Nuevo León');
 /*!40000 ALTER TABLE `hoteles_ciudad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -358,4 +358,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-21 15:21:23
+-- Dump completed on 2015-07-21 23:22:25
