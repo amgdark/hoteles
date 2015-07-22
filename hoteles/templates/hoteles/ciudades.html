@@ -19,7 +19,7 @@
 					<td class="center">{{ciudad.id}}</td>
 					<td>{{ciudad.nombre}}</td>
 					<td width="65px" class="center">
-						<a href="#" onclick="eliminarCiudad('{{ciudad.nombre}}','{% url "ciudad_eliminar" pk=ciudad.id %}');">
+						<a href="" onclick="eliminarCiudad('{{ciudad.nombre}}','{% url "ciudad_eliminar" pk=ciudad.id %}');">
 							<img src="{% static "images/icon_del.png" %}" title="Eliminar Ciudad">
 						</a>
 						<a href="{% url "ciudad_edit" pk=ciudad.id %}">
