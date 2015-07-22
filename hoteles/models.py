@@ -1,7 +1,7 @@
 from django.db import models
 
 class Ciudad(models.Model):
-    nombre = models.CharField(max_length=60)
+    nombre = models.CharField(max_length=120)
     def __str__(self):
         return self.nombre
 

@@ -10,16 +10,30 @@ def ciudades(request):
 	ciudades = Ciudad.objects.all()
 	return render(request, 'hoteles/ciudades.html',{'ciudades':ciudades})
 
-def ciudadNueva(request, pk):
+def ciudadNueva(request):
+	if request.method == "POST":
+		form = CiudadForm(request.POST)
+		if form.is_valid():
+			ciudad = form.save()
+			ciudad.save()
+			return redirect('hoteles.views.ciudades')
+	else:
+		form = CiudadForm()
+	return render(request, 'hoteles/ciudad_edit.html',{'form':form})
+
+def ciudadEditar(request, pk):
 	ciudad = get_object_or_404(Ciudad, pk=pk)
 	if request.method == "POST":
 		form = CiudadForm(request.POST, instance=ciudad)
 		if form.is_valid():
 			ciudad = form.save()
 			ciudad.save()
-			return redirect('hoteles.views.ciudades', pk=ciudad.pk)
+			return redirect('hoteles.views.ciudades')
 	else:
 		form = CiudadForm(instance=ciudad)
 	return render(request, 'hoteles/ciudad_edit.html',{'form':form})
 
-https://pypi.python.org/pypi/mysqlclient#downloads), 
+def ciudadEliminar(request, pk):
+	ciudad = get_object_or_404(Ciudad, pk=pk)
+	ciudad.delete()
+	return redirect('hoteles.views.ciudades')

@@ -6,7 +6,7 @@
 	<h1 class="green center">Nueva ciudad</h1>
 	<form method="POST" class="center formulario">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <button>Guardar</button>
+        <input type="button" value="Cancelar" onclick="window.location='{% url "hoteles.views.ciudades" %}'" />
     </form>
-	
 {% endblock %}
