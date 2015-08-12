@@ -3,10 +3,11 @@
 {% load staticfiles %}
 
 {% block content %}
-	<h1 class="green center">Nueva ciudad</h1>
-	<form method="POST" class="center formulario">{% csrf_token %}
+	<h1 class="green center">
+	{{ nuevo }} hotel</h1>
+	<form method="POST" class="form-horizontal">{% csrf_token %}
         {{ form.as_p }}
         <button>Guardar</button>
-        <input type="button" value="Cancelar" onclick="window.location='{% url "hoteles.views.ciudades" %}'" />
+        <input type="button" value="Cancelar" onclick="window.location='{% url "hoteles.views.hoteles" %}'" />
     </form>
 {% endblock %}

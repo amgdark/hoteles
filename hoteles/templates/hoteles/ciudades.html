@@ -3,22 +3,25 @@
 {% load staticfiles %}
 
 {% block content %}
-	<div class="contenedor">
+	<div class="conteiner">
+		<div class="panel">
+			
+		</div>
 		<h1 class="green center">Ciudades</h1>
 		<div style="width:50%;text-align:right;margin:0 auto">
 			<input type="button" value="Nuevo" onclick="window.location='{% url "hoteles.views.ciudadNueva" %}'" />
 		</div>
-		<table class="tabla">
+		<table class="table table-striped">
 			<tr>
-				<th>Id</th>
+				<th class="text-center">Id</th>
 				<th>Ciudad</th>
 				<th>Opción</th>
 			</tr>
 			{% for ciudad in ciudades %}
 				<tr>
-					<td class="center">{{ciudad.id}}</td>
+					<td class="text-center">{{ciudad.id}}</td>
 					<td>{{ciudad.nombre}}</td>
-					<td width="65px" class="center">
+					<td width="65px" class="text-center">
 						<a href="" onclick="eliminarCiudad('{{ciudad.nombre}}','{% url "ciudad_eliminar" pk=ciudad.id %}');">
 							<img src="{% static "images/icon_del.png" %}" title="Eliminar Ciudad">
 						</a>
