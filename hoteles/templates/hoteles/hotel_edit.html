@@ -1,0 +1,16 @@
+{% extends "hoteles/base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+	<h1 class="green center">
+	{{ nuevo }} hotel</h1>
+	<form method="POST" class="form-horizontal">{% csrf_token %}
+         <label class="control-label" for="id_{{ form.nombre.name }}">{{ form.nombre.label_tag }}</label>
+	     <input type="text" class="form-control"
+        id="id_{{ form.nombre.name }}"
+        value="{{ form.nombre.value }}" > 
+        <button class="btn btn-success">Guardar</button>
+        <input class="btn btn-warning" type="button" value="Cancelar" onclick="window.location='{% url "hoteles.views.hoteles" %}'" />
+    </form>
+{% endblock %}

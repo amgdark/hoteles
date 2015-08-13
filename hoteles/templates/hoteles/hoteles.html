@@ -1,0 +1,50 @@
+{% extends "hoteles/base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+	<div class="container">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-md-11">
+						<h2 class="panel-title text-center">Hoteles</h2>
+					</div>
+					<div class="col-md-1 text-right">
+						<input type="button" class="btn btn-success btn-sm" value="Nuevo" onclick="window.location='{% url "hoteles.views.hotelNuevo" %}'" />
+					</div>
+				</div>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<tr>
+						<th class="text-center">Nombre</th>
+						<th>Teléfono</th>
+						<th>Dirección</th>
+						<th>Colonia</th>
+						<th>Ciudad</th>
+						<th>Opciones</th>
+					</tr>
+					{% for hotel in hoteles %}
+						<tr>
+							<td>{{hotel.nombre}}</td>
+							<td>{{hotel.telefono}}</td>
+							<td>{{hotel.direccion}}</td>
+							<td>{{hotel.colonia}}</td>
+							<td>{{hotel.ciudad}}</td>
+							<td width="65px" class="text-center">
+								<a href="" onclick="eliminarHotel('{{hotel.nombre}}','{% url "ciudad_eliminar" pk=hotel.id %}');">
+									<img src="{% static "images/icon_del.png" %}" title="Eliminar Ciudad">
+								</a>
+								<a href="{% url "ciudad_edit" pk=hotel.id %}">
+									<img src="{% static "images/icon_edit.png" %}" title="Actualizar Ciudad">
+								</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>	
+{% endblock %}
+		

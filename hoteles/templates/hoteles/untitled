@@ -1,0 +1,32 @@
+{% extends "hoteles/base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+	<div class="contenedor">
+		<h1 class="green center">Hoteles</h1>
+		<div style="width:50%;text-align:right;margin:0 auto">
+			<input type="button" value="Nuevo" onclick="window.location='{% url "hoteles.views.ciudadNueva" %}'" />
+		</div>
+		<table class="tabla">
+			<tr>
+				<th>Id</th>
+				<th>Ciudad</th>
+				<th>Opción</th>
+			</tr>
+			{% for ciudad in ciudades %}
+				<tr>
+					<td class="center">{{ciudad.id}}</td>
+					<td>{{ciudad.nombre}}</td>
+					<td width="65px" class="center">
+						<a href="" onclick="eliminarCiudad('{{ciudad.nombre}}','{% url "ciudad_eliminar" pk=ciudad.id %}');">
+							<img src="{% static "images/icon_del.png" %}" title="Eliminar Ciudad">
+						</a>
+						<a href="{% url "ciudad_edit" pk=ciudad.id %}">
+							<img src="{% static "images/icon_edit.png" %}" title="Actualizar Ciudad">
+						</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+{% endblock %}
